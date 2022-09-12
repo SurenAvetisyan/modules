@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+        <template id="habr_product" inherit_id="website_sale.product" name="Habr Products">
+
+            <xpath expr="//div[hasclass('js_sale')]//section[@id='product_detail']//div[hasclass('row')][last()]"
+                   position="attributes">
+                <attribute name="class" add="habr_row" separator=" "/>
+            </xpath>
+
+            <xpath expr="//section[@id='product_detail']//div[hasclass('row')]//div[hasclass('col-lg-6')]"
+                   position="replace"/>
+
+            <xpath expr="//section[@id='product_detail']//div[hasclass('row')]//div[hasclass('col-lg-6')][last()]"
+                   position="replace"/>
+
+            <xpath expr="//div[@id='product_full_description']" position="replace"/>
+
+            <xpath expr="//div[@id='o_product_terms_and_share']" position="before">
+                <div class="d-sm-flex justify-content-between mb-2">
+                    <t t-call="website_sale.search">
+                        <t t-set="search" t-value="False"/>
+                        <t t-set="_classes" t-value="'mb-2 mr-sm-2'"/>
+                    </t>
+                </div>
+            </xpath>
+
+        </template>
+
+    </data>
+</odoo>
